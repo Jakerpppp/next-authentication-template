@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { doCredentialLogin } from "@/app/actions"
 
 export default function LoginForm() {
   const router = useRouter(); // Use the router hook within the component function
@@ -45,8 +46,12 @@ export default function LoginForm() {
         return;
       }
 
-      alert("Account created successfully");
-      router.push("/login"); // Use router.push to navigate
+      //Then once accout has been created we should log them in
+      
+      const LogInresponse = await doCredentialLogin(email, password);
+      
+      router.push("/home");
+      
     } catch (error) {
       alert("An error occurred while creating your account");
     }

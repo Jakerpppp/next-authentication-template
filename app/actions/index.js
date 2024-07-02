@@ -1,5 +1,5 @@
-'use server'
-import { signIn, signout } from "@/auth";
+'use server' //Tells Next to use Server Side
+import { signIn, signOut } from "@/auth";
 
 
 export async function doSociallogin(formData) {
@@ -8,7 +8,7 @@ export async function doSociallogin(formData) {
 }
 
 export async function doLogout() {
-    await signout({ redirectTo: "/" });
+    await signOut({redirectTo: "/"});
 }
 
 export async function doCredentialLogin(email, password) {

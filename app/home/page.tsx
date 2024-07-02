@@ -1,35 +1,21 @@
-'use client';
-
-import { useSession, signOut } from 'next-auth/react';
-import Link from 'next/link';
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
+import SignOutButton from "@/components/ui/SignOutButton";
 
-export default function Home() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+export default async function HomePage() {
+  const session = await auth();
 
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
-
-  if (!session) {
-    return (
-      <div>
-        <h1>Welcome to our site</h1>
-        <p>Please sign in to see your profile information.</p>
-        <Link href="/login">
-          <Button>Sign in</Button>
-        </Link>
-      </div>
-    );
+  if (!session?.user) {
+    redirect('/login');
   }
 
   return (
     <div>
-      <h1>Welcome, {session.user?.name}!</h1>
-      <p>Email: {session.user?.email}</p>
-      <Button onClick={() => signOut()}>Sign out</Button>
+      <h1>Welcome, {session?.user?.name}!</h1>
+      <p>Email: {session?.user?.email}</p>
+      <SignOutButton />
     </div>
   );
 }

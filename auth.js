@@ -10,9 +10,9 @@ export const {
     signOut,
     handlers: { GET, POST },
 }  = NextAuth({
-    session: {
-        strategy: 'jwt' 
-    },
+  session: {
+    strategy: 'jwt',
+  },
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -22,15 +22,19 @@ export const {
       },
       async authorize(credentials) {
 
+        console.log(credentials);
 
 
-        // await connectToDatabase();
+
+        await connectToDatabase();
 
         if (!credentials) {
           throw new Error('Missing credentials');
         }
 
-        const user = await getUserByEmail("J@j.com");
+        const user = await getUserByEmail(credentials.email);
+
+        console.log(user);
 
         if (!user) {
           throw new Error('No user found with the given email');
