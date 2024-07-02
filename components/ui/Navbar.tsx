@@ -28,6 +28,7 @@ export default function Navbar() {
               <li><Link href="/home">Homepage</Link></li>
               <li><Link href="/login">LogIn</Link></li>
               <li><Link href="/signup">SignUp</Link></li>
+              <li><Link href="/updatepass">Update Password</Link></li>
             </ul>
           </div>
         </div>
