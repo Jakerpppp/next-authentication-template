@@ -11,3 +11,13 @@ export async function createUser({ name, email, password }: { name: string, emai
         throw error;
     }
 }
+
+export async function getUserByEmail(email: string) {
+    try {
+      const user = await User.findOne({ email });
+      return user;
+    } catch (error) {
+      console.error("Error in getUserByEmail:", error);
+      throw error;
+    }
+  }

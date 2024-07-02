@@ -35,7 +35,14 @@ export default function LoginForm() {
       });
 
       if (!response.ok) {
-        throw new Error(response.statusText);
+        if (response.status === 409) {
+          alert("Email already in use. Please use a different email.");
+        } else if (response.status === 401) {
+          alert("Unauthorized access. Please check your credentials.");
+        } else {
+          alert("An error occurred: " + response.statusText);
+        }
+        return;
       }
 
       alert("Account created successfully");
