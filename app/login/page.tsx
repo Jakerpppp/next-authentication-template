@@ -27,7 +27,7 @@ export default function LoginForm() {
     try {
       const response = await doCredentialLogin(email, password);
 
-      console.log(response);
+
 
       if (!response.ok) {
         setError('Invalid email or password');

@@ -15,7 +15,6 @@ export async function createUser({ name, email, password }: { name: string, emai
 export async function getUserByEmail(email: string) {
     try {
       const user = await User.findOne({ email });
-      console.log("User found:", user);
       return user;
     } catch (error) {
       console.error("Error in getUserByEmail:", error);

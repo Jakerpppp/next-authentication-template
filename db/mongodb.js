@@ -20,7 +20,7 @@ async function connectToDatabase() {
   if (!cached.promise) {
 
     cached.promise = mongoose.connect(uri).then((mongoose) => {
-      console.log("Connected to MongoDB");
+   
       return mongoose;
     }).catch((error) => {
       console.error("Error connecting to MongoDB:", error);

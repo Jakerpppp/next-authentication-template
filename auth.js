@@ -22,8 +22,6 @@ export const {
       },
       async authorize(credentials) {
 
-        console.log(credentials);
-
 
 
         await connectToDatabase();
@@ -33,8 +31,6 @@ export const {
         }
 
         const user = await getUserByEmail(credentials.email);
-
-        console.log(user);
 
         if (!user) {
           throw new Error('No user found with the given email');
