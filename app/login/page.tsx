@@ -86,7 +86,7 @@ export default function LoginForm() {
             </Link>
           </div>
         </CardContent>
-        {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
+        {error && <p className="p-6 text-center text-sm"style={{ color: 'red' }}>{error}</p>}
       </Card>
     </form>
   );
