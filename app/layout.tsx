@@ -5,7 +5,8 @@ import Providers from "./providers";
 
 import connectToDatabase from "@/db/mongodb.js";
 
-import { SessionProvider } from "next-auth/react";
+
+import Navbar from "@/components/ui/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <Providers>
+      <Navbar />
           {children}
         </Providers>
         </body>
