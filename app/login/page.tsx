@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { doCredentialLogin } from "@/app/actions";
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
+import { Divide } from "lucide-react";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -42,8 +43,9 @@ export default function LoginForm() {
   }
 
   return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <form onSubmit={handleFormSubmit}>
-      <Card className="mx-auto max-w-sm my-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
@@ -89,5 +91,6 @@ export default function LoginForm() {
         {error && <p className="p-6 text-center text-sm"style={{ color: 'red' }}>{error}</p>}
       </Card>
     </form>
+    </div>
   );
 }

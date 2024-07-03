@@ -55,8 +55,9 @@ export default function UpdatePasswordForm({ email }: { email: string }) {
   }
 
   return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <form onSubmit={handleSubmit}>
-      <Card className="mx-auto max-w-sm my-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Update Password</CardTitle>
           <CardDescription>
@@ -92,5 +93,6 @@ export default function UpdatePasswordForm({ email }: { email: string }) {
         </CardFooter>
       </Card>
     </form>
+  </div>
   );
 }
