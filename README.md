@@ -83,7 +83,7 @@ Built by Jake Rawal
 
 ---
 
-### Optional Section: Contributing
+### Contributing
 If you want others to contribute, you can add:
 
 ```markdown
